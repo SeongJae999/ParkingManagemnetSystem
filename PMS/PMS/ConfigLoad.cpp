@@ -26,11 +26,9 @@ string ConfigLoad::trim(const string& str)
     return str.substr(first, (last - first + 1));
 }
 
-void ConfigLoad::parse()
-{
-
+void ConfigLoad::parse() {
     ifstream cfgfile("config.cfg");
-
+ 
     string line;
     while (getline(cfgfile, line))
     {

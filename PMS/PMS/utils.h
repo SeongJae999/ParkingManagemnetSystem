@@ -7,7 +7,5 @@
 
 using namespace std;
 
-// *******************************************
-// * Parse the text file with the parking data
-// *******************************************
+// 주차 데이터로 텍스트 파일 구문 분석
 vector<Parking> parse_parking_file(string filename);

@@ -5,6 +5,7 @@
 #include <opencv2/opencv.hpp>
 
 using namespace std;
+using namespace cv;
 
 class Parking
 {
@@ -12,9 +13,9 @@ private:
 	int id;
 	vector<vector<cv::Point>> contours_points;
 	vector<cv::Point> polygon_points_in_bounding_rect;
-	cv::Rect bounding_rect;  // pre-calculated bounding_rect, to cut the ROI
+	Rect bounding_rect;  // pre-calculated bounding_rect, to cut the ROI
 	bool occupied;
-	cv::Mat mask;  // mask of polygon in bounding_rect coordinates
+	Mat mask;  // mask of polygon in bounding_rect coordinates
 public:
 	Parking();
 	void setStatus(bool status);
@@ -24,7 +25,7 @@ public:
 	void setPoints(vector<cv::Point> points);
 	vector<vector<cv::Point>> getContourPoints(void);
 	void calcBoundingRect(void);
-	cv::Rect getBoundingRect(void);
-	cv::Mat getMask(void);
-	cv::Point getCenterPoint(void);
+	Rect getBoundingRect(void);
+	Mat getMask(void);
+	Point getCenterPoint(void);
 };
