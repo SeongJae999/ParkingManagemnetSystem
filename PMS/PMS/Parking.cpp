@@ -40,7 +40,7 @@ void Parking::calcBoundingRect() {
 			polygon_points_in_bounding_rect.push_back(Point(p.x - bounding_rect.x, p.y - bounding_rect.y));
 		vector<vector<Point>> contours;
 		contours.push_back(polygon_points_in_bounding_rect);
-		cv::drawContours(mask, contours, -1, Scalar(255), cv::FILLED);
+		drawContours(mask, contours, -1, Scalar(255), FILLED);
 	}
 	else
 		throw logic_error("Cannot calculate boundingRect when polygon_points are empty");

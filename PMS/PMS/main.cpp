@@ -13,7 +13,6 @@
 using namespace std;
 using namespace cv;
 
-
 int main(int argc, char** argv) {
 
 	// 명령인수에 값이 제대로 있는지 확인
@@ -32,19 +31,16 @@ int main(int argc, char** argv) {
 
 	// 비디오 파일이나 카메라 불러오기
 	VideoCapture cap;
-	if (videoFilename == "0" || videoFilename == "1" || videoFilename == "2")
-	{
+	if (videoFilename == "0" || videoFilename == "1" || videoFilename == "2") {
 		printf("Loading Connected Camera...\n");
 		cap.open(stoi(videoFilename));
-		cv::waitKey(500); // 키 입력 대기 시간
+		waitKey(500); // 키 입력 대기 시간
 	}
-	else
-	{
+	else {
 		cap.open(videoFilename);
 		//cap.set(cv::CAP_PROP_POS_FRAMES, 60000); // 프레임 바로 읽어 들이기
 	}
-	if (!cap.isOpened())
-	{
+	if (!cap.isOpened()) {
 		cout << "Could not open: " << videoFilename << endl;
 		return -1;
 	}
@@ -66,8 +62,7 @@ int main(int argc, char** argv) {
 	Scalar delta, color;
 	char c;
 	ostringstream oss;
-	Size blur_kernel = Size(1, 3);
-	namedWindow("Video", WINDOW_AUTOSIZE);
+	Size blur_kernel = Size(3, 3);
 
 	while (cap.isOpened()) {
 		cap.read(frame);
@@ -95,7 +90,6 @@ int main(int argc, char** argv) {
 			}
 			printf("\n");
 		}
-
 		// Parking Overlay
 		for (Parking park : parking_data)
 		{
@@ -117,16 +111,14 @@ int main(int argc, char** argv) {
 		// Text Overlay		
 		oss.str("");
 		oss << (unsigned long int)video_pos_frame << "/" << total_frames;
-		cv::putText(frame_out, oss.str(), cv::Point(5, 30), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 2, cv::LINE_AA);
+		putText(frame_out, oss.str(), Point(5, 30), FONT_HERSHEY_SIMPLEX, 0.7, Scalar(0, 255, 255), 2, LINE_AA);
 
 		// Save Video
 		if (ConfigLoad::options["SAVE_VIDEO"] == "true")
-		{
 			outputVideo.write(frame_out);
-		}
 
 		// Show Video
-		cv::imshow("Video", frame_out);
+		imshow("Video", frame_out);
 		c = (char)cv::waitKey(delay);
 		if (c == 27) break;
 	}
