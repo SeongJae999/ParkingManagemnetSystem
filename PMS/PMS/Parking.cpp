@@ -27,8 +27,18 @@ void Parking::setPoints(vector<Point> points) {
 	contours_points = contours;
 }
 
+void Parking::setPoints2(vector<Point> points) {
+	vector<vector<Point>> contours;
+	contours.push_back(points);
+	contours_points2 = contours;
+}
+
 vector<vector<Point>> Parking::getContourPoints() {
 	return contours_points;
+}
+
+vector<vector<Point>> Parking::getContourPoints2() {
+	return contours_points2;
 }
 
 void Parking::calcBoundingRect() {
