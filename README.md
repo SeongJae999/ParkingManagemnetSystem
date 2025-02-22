@@ -1,5 +1,5 @@
 # :oncoming_automobile: 주차 관리 시스템 PMS 
-    ![image1](https://github.com/user-attachments/assets/d3e260a0-7fe5-4339-8f6f-5a9e09d7dc22)
+![image1](https://github.com/user-attachments/assets/d3e260a0-7fe5-4339-8f6f-5a9e09d7dc22)
 
 # 프로젝트 소개 
 * PMS(ParkingManagementSystem)은 주차장에 진입하기전에 미리 주차 공간을 확인할 수 있도록 개발된 시스템입니다.
